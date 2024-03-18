@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: uni_admin
+      POSTGRES_PASSWORD: "1234"
+    command:
+      - "-c"
+      - "shared_buffers=256MB"
+      - "-c"
+      - "max_connections=200"
