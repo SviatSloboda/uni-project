@@ -12,6 +12,11 @@ Teacher:
         - The user can update a student's mark by selecting "Update Mark".
         - The user can delete a mark by selecting "Delete Mark".
 
+    Review and Manage Tasks:
+        Given the user is logged on as a Teacher,
+        - The user can review the details of a task by selecting "Review Task".
+
+
 Student:
     View Schedule:
         Given the user is logged on as a Student,
@@ -19,11 +24,17 @@ Student:
         - The user can view their schedule for the current day by selecting "View Daily Timetable".
         - The user can view their schedule for the current month by selecting "View Monthly Timetable".
 
+
     View Marks:
         Given the user is logged on as a Student,
         - The user can view all their marks by selecting "Get All Marks".
         - The user can view marks for a specific course by selecting "Get Marks By Course".
         - The user can calculate their average mark for a course by selecting "Calculate Average".
+
+    Manage Tasks:
+        Given the user is logged on as a Student,
+        - The user can submit a task by selecting "Submit Task".
+        - The user can view all assigned tasks by selecting "Get All Tasks".
 
 
 Admin (Faculty):
@@ -33,11 +44,15 @@ Admin (Faculty):
         - The user can remove an existing course from the faculty by selecting "Delete Course".
 
 
+
+
 Institution Admin:
     Faculty Management:
         Given the user is logged on as an Institution Admin,
         - The user can add a new faculty by selecting "Add Faculty".
         - The user can remove an existing faculty by selecting "Delete Faculty".
+
+
 
 Group Admin:
     Group Management:
@@ -46,4 +61,8 @@ Group Admin:
         - The user can remove a student from a group by selecting "Delete Student From Group".
         - The user can add a lesson to a group's schedule by selecting "Add Lesson".
         - The user can remove a lesson from a group's schedule by selecting "Remove Lesson".
+
+    Task Management:
+        Given the user is logged on as a Course Admin or Teacher,
+        - The user can add a task to a course by selecting "Add Task".
 
