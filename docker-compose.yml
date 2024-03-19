@@ -2,9 +2,13 @@ version: '3.8'
 services:
   db:
     image: postgres
+    container_name: uni_db
     environment:
       POSTGRES_USER: uni_admin
-      POSTGRES_PASSWORD: "1234"
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: university
+    ports:
+      - "5432:5432"
     command:
       - "-c"
       - "shared_buffers=256MB"
