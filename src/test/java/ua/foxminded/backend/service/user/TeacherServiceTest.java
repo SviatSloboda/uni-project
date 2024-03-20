@@ -27,10 +27,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest(includeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = {TeacherService.class, TeacherRepository.class, TaskService.class, TimetableService.class}))
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -126,6 +123,18 @@ class TeacherServiceTest extends BaseServiceTest<Teacher, TeacherService, Teache
         // assert
         assertNotNull(monthlyLessons);
         assertTrue(monthlyLessons.size() > 3);
+    }
+
+    @Test
+    void viewTimetable_shouldThrowIllegalStateExceptionWhenPeriodIsWronglySet() {
+        // arrange
+        String teacherId = teacher.getId();
+
+        // act & assert
+        assertThrows(IllegalStateException.class, () -> teacherService.viewTimeTableByPeriod(teacherId,
+                        null, "century"),
+                "You have set wrong period!"
+        );
     }
 
     @Override
