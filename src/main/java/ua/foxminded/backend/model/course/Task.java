@@ -8,6 +8,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,20 +20,33 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
+@Table(name = "task")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Task {
     @Id
+    @Column(name = "id")
     private String id;
+
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "description")
     private String description;
+
+    @Column(name = "is_compulsory")
     private boolean isCompulsory;
+
+    @Column(name = "deadline")
     private LocalDateTime deadline;
+
+    @Column(name = "user_answer")
     private String userAnswer;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "status")
     private TaskStatus status;
 
     @ManyToOne(cascade = {CascadeType.PERSIST})

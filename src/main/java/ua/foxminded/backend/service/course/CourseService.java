@@ -28,8 +28,9 @@ public class CourseService extends BaseService<Course, CourseRepository, CourseN
     public Course addTeacherToCourse(String courseId, Teacher teacher) {
         Course course = getById(courseId);
 
-        if (teacherExistsInCourse(course, teacher.getId()))
-            throw new TeacherAlreadyExistsException("Teacher with id: " + course.getId() + EXCEPTION_MESSAGE + courseId);
+        if (teacherExistsInCourse(course, teacher.getId())) {
+            throw new TeacherAlreadyExistsException("Teacher with id: %s%s%s".formatted(course.getId(), EXCEPTION_MESSAGE, courseId));
+        }
 
         course.getTeachers().add(teacher);
 
@@ -54,8 +55,9 @@ public class CourseService extends BaseService<Course, CourseRepository, CourseN
     public Course addGroupToCourse(String courseId, Group group) {
         Course course = getById(courseId);
 
-        if (groupExistsInCourse(course, group.getId()))
-            throw new GroupAlreadyExistsException("Group with id: " + group.getId() + EXCEPTION_MESSAGE + courseId);
+        if (groupExistsInCourse(course, group.getId())) {
+            throw new GroupAlreadyExistsException("Group with id: %s%s%s".formatted(group.getId(), EXCEPTION_MESSAGE, courseId));
+        }
 
         course.getGroups().add(group);
 
@@ -81,7 +83,7 @@ public class CourseService extends BaseService<Course, CourseRepository, CourseN
         Course course = getById(courseId);
 
         if (taskExistsInCourse(course, task.getId())) {
-            throw new TaskAlreadyExistsException("Task with id: " + task.getId() + EXCEPTION_MESSAGE + courseId);
+            throw new TaskAlreadyExistsException("Task with id: %s%s%s".formatted(task.getId(), EXCEPTION_MESSAGE, courseId));
         }
         course.getTasks().add(task);
 
@@ -95,7 +97,7 @@ public class CourseService extends BaseService<Course, CourseRepository, CourseN
         Task taskToRemove = course.getTasks().stream()
                 .filter(task -> task.getId().equals(taskId))
                 .findAny()
-                .orElseThrow(() -> new TaskNotFoundException("There is no such Task with id:" + taskId));
+                .orElseThrow(() -> new TaskNotFoundException("There is no such Task with id: %s".formatted(taskId)));
 
         course.getTasks().remove(taskToRemove);
 

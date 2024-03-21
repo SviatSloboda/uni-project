@@ -6,6 +6,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,12 +17,14 @@ import ua.foxminded.backend.model.course.Lesson;
 import java.util.UUID;
 
 @Entity
+@Table(name = "timetable_entry")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class TimetableEntry {
     @Id
+    @Column(name = "id")
     private String id;
 
     @ManyToOne(cascade = {CascadeType.PERSIST})

@@ -7,6 +7,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,6 +20,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
+@Table(name = "faculty")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -25,8 +28,10 @@ import java.util.UUID;
 @With
 public class Faculty {
     @Id
+    @Column(name = "id")
     private String id;
 
+    @Column(name = "name")
     private String name;
 
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
@@ -35,9 +40,9 @@ public class Faculty {
 
     @ManyToMany(cascade = {CascadeType.PERSIST})
     @JoinTable(
-            name = "courses_faculties",
-            joinColumns = @JoinColumn(name = "course_id"),
-            inverseJoinColumns = @JoinColumn(name = "faculty_id")
+            name = "faculty_course",
+            joinColumns = @JoinColumn(name = "faculty_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id")
     )
     private List<Course> courses;
 

@@ -20,7 +20,9 @@ public abstract class BaseService<T, R extends JpaRepository<T, String>, E exten
     public List<T> getAll() {
         List<T> entities = repository.findAll();
 
-        if (entities.isEmpty()) throw createNotFoundException("No entities were found! List is empty!");
+        if (entities.isEmpty()){
+            throw createNotFoundException("No entities were found! List is empty!");
+        }
 
         return entities;
     }
@@ -32,7 +34,9 @@ public abstract class BaseService<T, R extends JpaRepository<T, String>, E exten
 
     @Transactional
     public void deleteById(String id) {
-        if (!repository.existsById(id)) throw createNotFoundException("Entity with id " + id + " not found");
+        if (!repository.existsById(id)){
+            throw createNotFoundException("Entity with id " + id + " not found");
+        }
 
         repository.deleteById(id);
     }

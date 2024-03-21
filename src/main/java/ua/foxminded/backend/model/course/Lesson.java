@@ -7,6 +7,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
+import jakarta.persistence.Table;
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,14 +20,20 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
+@Table(name = "lesson")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Lesson {
     @Id
+    @Column(name = "id")
     private String id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "location")
     private String location;
 
     @OneToMany(mappedBy = "lesson")

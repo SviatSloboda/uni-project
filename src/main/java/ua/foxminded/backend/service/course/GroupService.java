@@ -28,8 +28,9 @@ public class GroupService extends BaseService<Group, GroupRepository, GroupNotFo
     public Group addStudentToGroup(String groupId, Student student) {
         Group group = getById(groupId);
 
-        if (studentExistsInGroup(group, student.getId()))
+        if (studentExistsInGroup(group, student.getId())){
             throw new StudentAlreadyExistsException("Student with id: " + student.getId() + " already exists in Group with id: " + groupId);
+        }
 
         group.getStudents().add(student);
 
@@ -54,8 +55,9 @@ public class GroupService extends BaseService<Group, GroupRepository, GroupNotFo
     public Group addLessonToGroup(String groupId, Lesson lesson) {
         Group group = getById(groupId);
 
-        if (lessonExistsInGroup(group, lesson.getId()))
+        if (lessonExistsInGroup(group, lesson.getId())) {
             throw new LessonAlreadyExistsException("Lesson with id: " + lesson.getId() + " already exists in Group with id: " + groupId);
+        }
 
         group.getLessons().add(lesson);
 

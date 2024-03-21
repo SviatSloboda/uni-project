@@ -1,11 +1,13 @@
 package ua.foxminded.backend.model.timetable;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,6 +19,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
+@Table(name = "timetable")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -24,6 +27,7 @@ import java.util.UUID;
 @With
 public class Timetable {
     @Id
+    @Column(name = "id")
     private String id;
 
     @OneToMany(mappedBy = "timetable")

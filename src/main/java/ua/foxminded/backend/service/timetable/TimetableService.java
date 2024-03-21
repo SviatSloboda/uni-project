@@ -26,9 +26,10 @@ public class TimetableService extends BaseService<Timetable, TimetableRepository
     public Timetable addTimeTableEntry(String timetableId, TimetableEntry timetableEntry) {
         Timetable timetable = getById(timetableId);
 
-        if (timetableEntryExistsInTimetable(timetable, timetableEntry.getId()))
+        if (timetableEntryExistsInTimetable(timetable, timetableEntry.getId())){
             throw new TimetableEntryAlreadyExistsException("TimetableEntry with id: " + timetableEntry.getId() +
                                                            " already exists in this Timetable with id: " + timetableId);
+        }
 
         timetable.getEntries().add(timetableEntry);
 

@@ -20,8 +20,9 @@ public class FacultyService extends BaseService<Faculty, FacultyRepository, Facu
     public Faculty addCourse(String facultyId, Course course) {
         Faculty faculty = getById(facultyId);
 
-        if (courseExistsInFaculty(faculty, course.getId()))
+        if (courseExistsInFaculty(faculty, course.getId())){
             throw new CourseAlreadyExistsException("Course with id: " + course.getId() + " already exists in Faculty with id: " + facultyId);
+        }
 
         faculty.getCourses().add(course);
 
