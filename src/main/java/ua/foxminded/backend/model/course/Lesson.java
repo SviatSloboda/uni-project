@@ -25,7 +25,7 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Lesson {
+public class  Lesson {
     @Id
     @Column(name = "id")
     private String id;
