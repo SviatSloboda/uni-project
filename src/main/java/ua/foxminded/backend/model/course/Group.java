@@ -22,7 +22,7 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "group")
+@Table(name = "groups")
 public class Group {
     @Id
     @Column(name = "id")
