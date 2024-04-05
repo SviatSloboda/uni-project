@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="tableFragment (items, title)">
+    <div class="container">
+        <h1 class="display-3" th:text="${title} + ' Page'"></h1>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" th:href="@{/}">Home</a>
+            </div>
+        </nav>
+
+        <div th:if="${items.size() > 0}">
+            <table class="table">
+                <caption class="text-center" th:text="${title}"></caption>
+                <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="item : ${items}">
+                    <td th:text="${item.id}"></td>
+                    <td th:text="${item.name}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 class="h2" th:unless="${items.size() > 0}">No entities were retrieved</h2>
+
+    </div>
+</div>
+<script th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.min.js}"></script>
+</body>
+</html>

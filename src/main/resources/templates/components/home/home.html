@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>University Application</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container">
+    <h1 class="display-3">Welcome to University Web Application</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Menu</a>
+            <button aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"
+                    class="navbar-toggler" data-bs-target="#navbarNavDropdown"
+                    data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <!-- Course Menu -->
+                    <li class="nav-item dropdown">
+                        <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+                           href="#" id="courseDropdown" role="button">
+                            Course
+                        </a>
+                        <ul aria-labelledby="courseDropdown" class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/course}">Courses</a></li>
+                            <li><a class="dropdown-item" th:href="@{/group}">Groups</a></li>
+                            <li><a class="dropdown-item" th:href="@{/lesson}">Lessons</a></li>
+                            <li><a class="dropdown-item" th:href="@{/task}">Tasks</a></li>
+                        </ul>
+                    </li>
+                    <!-- Institution Menu -->
+                    <li class="nav-item dropdown">
+                        <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+                           href="#" id="institutionDropdown" role="button">
+                            Institution
+                        </a>
+                        <ul aria-labelledby="institutionDropdown" class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/faculty}">Faculties</a></li>
+                            <li><a class="dropdown-item" th:href="@{/institute}">Institutes</a></li>
+                        </ul>
+                    </li>
+                    <!-- User Menu -->
+                    <li class="nav-item dropdown">
+                        <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+                           href="#" id="userDropdown" role="button">
+                            User
+                        </a>
+                        <ul aria-labelledby="userDropdown" class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/student}">Students</a></li>
+                            <li><a class="dropdown-item" th:href="@{/teacher}">Teachers</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"></script>
+</body>
+</html>

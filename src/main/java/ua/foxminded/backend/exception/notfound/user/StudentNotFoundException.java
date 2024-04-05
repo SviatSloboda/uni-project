@@ -1,6 +1,8 @@
 package ua.foxminded.backend.exception.notfound.user;
 
-public class StudentNotFoundException extends RuntimeException{
+import java.util.NoSuchElementException;
+
+public class StudentNotFoundException extends NoSuchElementException {
     public StudentNotFoundException(String s) {
         super(s);
     }
