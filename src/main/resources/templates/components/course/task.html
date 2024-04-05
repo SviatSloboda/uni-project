@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/headTag :: headTag">
+<head th:replace="~{fragments/headTag :: headTag}">
     <title>Task</title>
 </head>
 <body>
@@ -13,7 +13,7 @@
         </div>
     </nav>
 
-    <div th:if="~{${tasks.size() > 1}}">
+    <div th:if="${tasks.size() > 1}">
         <table class="table">
             <caption class="text-center" th:text="Tasks"></caption>
             <thead class="table-dark">
