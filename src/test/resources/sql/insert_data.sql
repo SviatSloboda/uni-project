@@ -41,25 +41,25 @@ INSERT INTO student (id, first_name, last_name, login, password, group_id) VALUE
 INSERT INTO student (id, first_name, last_name, login, password, group_id) VALUES ('5', 'Eve', 'Online', 'eve', 'evepass', '5');
 
 -- Courses and Faculties Relationship
-INSERT INTO courses_faculties (course_id, faculty_id) VALUES ('1', '1');
-INSERT INTO courses_faculties (course_id, faculty_id) VALUES ('2', '1');
-INSERT INTO courses_faculties (course_id, faculty_id) VALUES ('3', '3');
-INSERT INTO courses_faculties (course_id, faculty_id) VALUES ('4', '3');
-INSERT INTO courses_faculties (course_id, faculty_id) VALUES ('5', '5');
+INSERT INTO faculty_course (course_id, faculty_id) VALUES ('1', '1');
+INSERT INTO faculty_course (course_id, faculty_id) VALUES ('2', '1');
+INSERT INTO faculty_course (course_id, faculty_id) VALUES ('3', '3');
+INSERT INTO faculty_course (course_id, faculty_id) VALUES ('4', '3');
+INSERT INTO faculty_course (course_id, faculty_id) VALUES ('5', '5');
 
 -- Courses and Groups Relationship
-INSERT INTO groups_courses (group_id, course_id) VALUES ('1', '1');
-INSERT INTO groups_courses (group_id, course_id) VALUES ('2', '2');
-INSERT INTO groups_courses (group_id, course_id) VALUES ('3', '3');
-INSERT INTO groups_courses (group_id, course_id) VALUES ('4', '4');
-INSERT INTO groups_courses (group_id, course_id) VALUES ('5', '5');
+INSERT INTO group_course (group_id, course_id) VALUES ('1', '1');
+INSERT INTO group_course (group_id, course_id) VALUES ('2', '2');
+INSERT INTO group_course (group_id, course_id) VALUES ('3', '3');
+INSERT INTO group_course (group_id, course_id) VALUES ('4', '4');
+INSERT INTO group_course (group_id, course_id) VALUES ('5', '5');
 
 -- Courses and Teachers Relationship
-INSERT INTO teachers_courses (teacher_id, course_id) VALUES ('1', '1');
-INSERT INTO teachers_courses (teacher_id, course_id) VALUES ('2', '2');
-INSERT INTO teachers_courses (teacher_id, course_id) VALUES ('3', '3');
-INSERT INTO teachers_courses (teacher_id, course_id) VALUES ('4', '4');
-INSERT INTO teachers_courses (teacher_id, course_id) VALUES ('5', '5');
+INSERT INTO teacher_course (teacher_id, course_id) VALUES ('1', '1');
+INSERT INTO teacher_course (teacher_id, course_id) VALUES ('2', '2');
+INSERT INTO teacher_course (teacher_id, course_id) VALUES ('3', '3');
+INSERT INTO teacher_course (teacher_id, course_id) VALUES ('4', '4');
+INSERT INTO teacher_course (teacher_id, course_id) VALUES ('5', '5');
 
 -- Timetable
 INSERT INTO timetable (id, group_id) VALUES ('1', '1');

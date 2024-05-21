@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/headTag :: headTag}">
+    <title>Teacher</title>
+</head>
+<body>
+<div th:replace="~{fragments/userTableFragment :: userTableFragment(${teachers}, 'Teachers')}"></div>
+</body>
+</html>

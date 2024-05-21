@@ -4,8 +4,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
-public abstract class BaseService<T, R extends JpaRepository<T, String>, E extends RuntimeException> {
+public abstract class BaseService<T, R extends JpaRepository<T, String>, E extends NoSuchElementException> {
     protected final R repository;
 
     protected BaseService(R repository) {

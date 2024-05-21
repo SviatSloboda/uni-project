@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 
 @Transactional
-public abstract class BaseServiceTest<T, S extends BaseService<T, R, E>, R extends JpaRepository<T, String>, E extends RuntimeException> {
+public abstract class BaseServiceTest<T, S extends BaseService<T, R, E>, R extends JpaRepository<T, String>, E extends NoSuchElementException> {
     S service;
     R repository;
 
